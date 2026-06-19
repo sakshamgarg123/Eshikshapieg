@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&family=Cinzel:wght@400;650;700;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Syne", sans-serif;
+  --font-serif-elegant: "Cinzel", "Playfair Display", serif;
+  --font-script-elegant: "Great Vibes", cursive;
+  
+  --color-glass-deep: rgba(14, 14, 21, 0.75);
+  --color-glass-light: rgba(255, 255, 255, 0.03);
+}
+
+/* Base custom resets - fully themed output as requested by the user */
+body {
+  background-color: #F0F9FF;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.4) 0%, rgba(14, 165, 233, 0.1) 40%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(to bottom, #BAE6FD 0%, #F0F9FF 30%, #FFFFFF 100%);
+  background-attachment: fixed;
+  color: #1E293B;
+}
+
+/* eShikshaPie Dot Grid Vector Matrix - Highlighted for Light Mode */
+.dot-grid {
+  background-size: 24px 24px;
+  background-image: radial-gradient(circle, rgba(14, 165, 233, 0.12) 1px, transparent 1px);
+}
+
+/* Linear scanning background glow lines */
+.scanning-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(14, 165, 233, 0.04) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Floating White Capsule Header - matches supplied design blueprint precisely */
+.eshikshapie-header {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 2rem !important;
+  box-shadow: 
+    0 10px 30px -10px rgba(14, 165, 233, 0.2), 
+    0 4px 6px -4px rgba(14, 165, 233, 0.08), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  transition: all 0.3s ease;
+}
+
+/* Light Theme Glassmorphism Panels */
+.glass-panel {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(14, 165, 233, 0.12);
+  box-shadow: 0 8px 30px 0 rgba(14, 165, 233, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #1E293B;
+}
+
+.glass-panel:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(249, 115, 22, 0.25); /* Sunset orange hover accent */
+  box-shadow: 0 12px 35px 0 rgba(249, 115, 22, 0.08);
+}
+
+/* Elegant brand text gradients */
+.brand-heading-gradient {
+  background: linear-gradient(135deg, #0284c7 10%, #0369a1 50%, #1e1b4b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.neon-glow-indigo {
+  box-shadow: 0 0 20px -2px rgba(14, 165, 233, 0.3);
+}
+
+.neon-glow-emerald {
+  box-shadow: 0 0 20px -2px rgba(16, 185, 129, 0.25);
+}
+
+.neon-border-glow {
+  position: relative;
+}
+
+.neon-border-glow::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to bottom right, rgba(14, 165, 233, 0.3), rgba(249, 115, 22, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Core styling overrides for the entire light application mode */
+.light-theme {
+  --color-brand-primary: #FF7A45;
+}
+
+/* Overriding Dark Panel/Card background containers to pristine light card elements */
+.light-theme .bg-\[\#0F0F12\],
+.light-theme .bg-\[\#0F0F16\]\/40,
+.light-theme .bg-\[\#0F0F16\]\/65,
+.light-theme .bg-\[\#1C1C24\],
+.light-theme .bg-\[\#0d0d15\],
+.light-theme .bg-\[\#0c0c14\],
+.light-theme .bg-\[\#0a0a14\]\/65,
+.light-theme .bg-\[\#0a0a14\],
+.light-theme .bg-black\/40,
+.light-theme .bg-black\/50,
+.light-theme .bg-\[\#12121A\],
+.light-theme .bg-\[\#0F0F16\],
+.light-theme .bg-\[\#0A0A0D\],
+.light-theme .bg-\[rgba\(15\,15\,22\,0\.65\)\] {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(14, 165, 233, 0.12) !important;
+  color: #1E293B !important;
+}
+
+/* Form elements theme styling */
+.light-theme input, 
+.light-theme select, 
+.light-theme textarea {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid rgba(14, 165, 233, 0.25) !important;
+}
+.light-theme select option {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+.light-theme input:focus, 
+.light-theme select:focus, 
+.light-theme textarea:focus {
+  border-color: #FF7A45 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.15) !important;
+}
+.light-theme input::placeholder, 
+.light-theme textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Enforce dark legible text color on elements that defaulted to white */
+.light-theme h1, 
+.light-theme h2, 
+.light-theme h5, 
+.light-theme h6 {
+  color: #0F172A !important;
+}
+.light-theme h3, 
+.light-theme h4 {
+  color: #0F172A !important;
+}
+.light-theme p, 
+.light-theme span, 
+.light-theme label, 
+.light-theme div:not(.bg-indigo-600):not(.bg-emerald-600):not(.bg-rose-600) {
+  /* Guard button and icon containers */
+  text-shadow: none !important;
+}
+
+/* Guard readability for text-white utility classes on light backgrounds */
+.light-theme .text-white {
+  color: #1E293B !important;
+}
+.light-theme .text-white\/40,
+.light-theme .text-white\/50,
+.light-theme .text-white\/60,
+.light-theme .text-zinc-400,
+.light-theme .text-zinc-500,
+.light-theme .text-zinc-400\/80 {
+  color: #475569 !important;
+}
+
+/* Keep actual text representation on direct white tags if they are within buttons or icons */
+.light-theme button .text-white,
+.light-theme button.text-white,
+.light-theme button span,
+.light-theme .bg-indigo-600,
+.light-theme .bg-indigo-500,
+.light-theme .bg-indigo-700,
+.light-theme .bg-[#FF7A45],
+.light-theme .bg-orange-500,
+.light-theme .bg-emerald-600,
+.light-theme .bg-rose-600 {
+  color: #FFFFFF !important;
+}
+.light-theme button.bg-white,
+.light-theme button.bg-white span {
+  color: #0F172A !important;
+}
+
+/* Student dashboard wallets and secure class segments */
+.light-theme .bg-indigo-950\/20,
+.light-theme .bg-indigo-950\/10,
+.light-theme .bg-indigo-950\/30,
+.light-theme .bg-indigo-950\/25,
+.light-theme .bg-indigo-500\/5,
+.light-theme .bg-indigo-500\/10,
+.light-theme .bg-sky-50\/80 {
+  background-color: rgba(14, 165, 233, 0.08) !important;
+  border-color: rgba(14, 165, 233, 0.18) !important;
+  color: #0284c7 !important;
+}
+
+.light-theme .border-white\/10,
+.light-theme .border-white\/5,
+.light-theme .border-white\/15,
+.light-theme .border-zinc-800,
+.light-theme .border-zinc-700,
+.light-theme .border-white\/20 {
+  border-color: rgba(14, 165, 233, 0.12) !important;
+}
+
+.light-theme .text-indigo-400 {
+  color: #0284c7 !important;
+}
+.light-theme .text-emerald-400 {
+  color: #10B981 !important;
+}
+.light-theme .text-rose-400 {
+  color: #EF4444 !important;
+}
+
+/* Smooth Scrolling Marquee for student dashboard ticker */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 55s linear infinite;
+}
+
+/* Hide scrollbars for elegant workspace panels but keep mouse scrollability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

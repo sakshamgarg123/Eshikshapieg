@@ -1,0 +1,6 @@
+{
+  "name": "Teacher & Student Dashboard Portal",
+  "description": "An interactive classroom dashboard enabling teachers to schedule live classes, upload assignments, track student report metrics, and generate AI quizzes from text/PDFs, paired with a personal student workspace.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
